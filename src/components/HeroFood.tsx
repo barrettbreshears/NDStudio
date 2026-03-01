@@ -15,8 +15,8 @@ interface FoodItem {
 
 const foodItems: FoodItem[] = [
   { name: "Kiwi", category: "Vegetable and Fruit", image: "/images/food/kiwi.png", x: "24%", y: "18%", enterX: "-70px", enterY: "34px" },
-  { name: "Salmon", category: "Whole Grain", image: "/images/food/salmon.png", x: "76%", y: "16%", enterX: "70px", enterY: "34px" },
-  { name: "Chicken Breast", category: "Vegetable and Fruit", image: "/images/food/chicken.png", x: "10%", y: "50%", enterX: "-80px", enterY: "26px" },
+  { name: "Salmon", category: "Protein & Healthy Fats", image: "/images/food/salmon.png", x: "76%", y: "16%", enterX: "70px", enterY: "34px" },
+  { name: "Chicken Breast", category: "Protein & Healthy Fats", image: "/images/food/chicken.png", x: "10%", y: "50%", enterX: "-80px", enterY: "26px" },
   { name: "Beans", category: "Vegetable and Fruit", image: "/images/food/beans.png", x: "74%", y: "50%", enterX: "72px", enterY: "28px" },
   { name: "Brown Rice", category: "Whole Grain", image: "/images/food/brownrice.png", x: "26%", y: "84%", enterX: "-62px", enterY: "22px" },
   { name: "Broccoli", category: "Vegetable and Fruit", image: "/images/food/broccoli.png", x: "86%", y: "84%", enterX: "64px", enterY: "24px" },

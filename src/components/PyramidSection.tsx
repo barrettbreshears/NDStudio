@@ -20,13 +20,13 @@ const layers: PyramidLayer[] = [
     id: "vegetables",
     label: "Vegetables & Fruit",
     description:
-      "Protein & Healthy Fats power strength, focus, and repair. For decades, they were pushed aside while cheap grains and sugar took center stage. The new Pyramid puts them back at the top where they belong.",
+      "Vegetables and fruits are essential to real food nutrition. Eat a wide variety of whole, colorful, nutrient-dense vegetables and fruits in their original form, prioritizing freshness and minimal processing.",
   },
   {
     id: "grains",
     label: "Whole Grains",
     description:
-      "Protein & Healthy Fats power strength, focus, and repair. For decades, they were pushed aside while cheap grains and sugar took center stage. The new Pyramid puts them back at the top where they belong.",
+      "Whole grains are encouraged. Refined carbohydrates are not. Prioritize fiber-rich whole grains and significantly reduce the consumption of highly processed, refined carbohydrates that displace real nourishment.",
   },
 ];
 
@@ -146,7 +146,7 @@ export default function PyramidSection() {
                   }}
                 >
                   <image
-                    href="/images/pryamid/protien.png"
+                    href="/images/pyramid/protein.png"
                     x="0"
                     y="0"
                     width="400"
@@ -164,7 +164,7 @@ export default function PyramidSection() {
                   }}
                 >
                   <image
-                    href="/images/pryamid/vegetables.png"
+                    href="/images/pyramid/vegetables.png"
                     x="70"
                     y="118"
                     width="260"
@@ -182,7 +182,7 @@ export default function PyramidSection() {
                   }}
                 >
                   <image
-                    href="/images/pryamid/whole-grains.png"
+                    href="/images/pyramid/whole-grains.png"
                     x="128"
                     y="233"
                     width="144"
