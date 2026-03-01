@@ -35,6 +35,7 @@ export default function WeightedScroll() {
     const LERP = 0.075;
     const EPSILON = 0.2;
     const WHEEL_MULTIPLIER = 1.15;
+    const MAX_WHEEL_STEP = 160;
 
     const run = () => {
       const delta = target - current;
@@ -63,7 +64,9 @@ export default function WeightedScroll() {
       maxScroll = document.documentElement.scrollHeight - window.innerHeight;
 
       const modeFactor = event.deltaMode === 1 ? 18 : event.deltaMode === 2 ? window.innerHeight : 1;
-      target = clampTarget(target + event.deltaY * modeFactor * WHEEL_MULTIPLIER);
+      const rawStep = event.deltaY * modeFactor * WHEEL_MULTIPLIER;
+      const boundedStep = Math.max(-MAX_WHEEL_STEP, Math.min(MAX_WHEEL_STEP, rawStep));
+      target = clampTarget(target + boundedStep);
 
       if (!rafId) {
         rafId = requestAnimationFrame(run);

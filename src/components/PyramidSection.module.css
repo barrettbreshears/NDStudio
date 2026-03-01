@@ -136,6 +136,11 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  padding: 0;
   color: #FFF;
   font-family: "Geist", sans-serif;
   font-size: 22px;
@@ -143,6 +148,12 @@
   font-weight: 500;
   line-height: 110%;
   font-feature-settings: "ss03" on;
+}
+
+.accordionHeader:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.55);
+  outline-offset: 6px;
+  border-radius: 10px;
 }
 
 .accordionLabel {

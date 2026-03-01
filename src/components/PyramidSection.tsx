@@ -72,6 +72,28 @@ export default function PyramidSection() {
   const panelMorph = Math.min(1, scrollProgress / 0.08);
   const panelInset = 18 * (1 - panelMorph);
   const panelRadius = 120 * (1 - panelMorph);
+  const stateAnchors = [0.07, 0.4, 0.73];
+
+  const scrollToState = (index: number) => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const clampedIndex = Math.max(0, Math.min(TOTAL_STATES - 1, index));
+    const targetProgress = stateAnchors[clampedIndex] ?? 0;
+    const viewportHeight = window.innerHeight;
+    const sectionTop = window.scrollY + section.getBoundingClientRect().top;
+    const scrollableHeight = section.offsetHeight - viewportHeight * 0.4;
+
+    const targetY =
+      sectionTop -
+      viewportHeight * 0.3 +
+      targetProgress * Math.max(scrollableHeight, 1);
+
+    window.scrollTo({
+      top: targetY,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <>
@@ -178,14 +200,20 @@ export default function PyramidSection() {
 
                 {/* Accordion overlaid on the LEFT side of the pyramid */}
                 <div className={styles.accordion}>
-                  {layers.map((layer) => (
+                  {layers.map((layer, index) => (
                     <div
                       key={layer.id}
                       className={`${styles.accordionItem} ${
                         activeLayerId === layer.id ? styles.active : ""
                       }`}
                     >
-                      <div className={styles.accordionHeader}>
+                      <button
+                        type="button"
+                        className={styles.accordionHeader}
+                        onClick={() => scrollToState(index)}
+                        aria-expanded={activeLayerId === layer.id}
+                        aria-controls={`accordion-panel-${layer.id}`}
+                      >
                         <span className={styles.accordionLabel}>{layer.label}</span>
                         <img
                           src="/images/expand-icon.svg"
@@ -195,8 +223,9 @@ export default function PyramidSection() {
                             activeLayerId === layer.id ? styles.chevronOpen : ""
                           }`}
                         />
-                      </div>
+                      </button>
                       <div
+                        id={`accordion-panel-${layer.id}`}
                         className={styles.accordionContent}
                         style={{
                           maxHeight: activeLayerId === layer.id ? "200px" : "0",
@@ -225,7 +254,12 @@ export default function PyramidSection() {
             />
           </div>
 
-          <a href="#" className={styles.whiteCta}>
+          <a
+            href="https://cdn.realfood.gov/DGA.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.whiteCta}
+          >
             <span>Download the guidelines</span>
             <svg
               width="33"
