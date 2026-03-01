@@ -1,0 +1,159 @@
+.section {
+  background: var(--color-cream);
+  padding: 60px 0 80px;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Scattered 2-col grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 48px;
+  column-gap: 40px;
+}
+
+/* Slot wrapper controls horizontal placement within each grid cell */
+.cardSlot {
+  display: flex;
+}
+
+/* ========================
+   FOOD CARD — exact Figma specs
+   ======================== */
+.card {
+  display: inline-flex;
+  padding: 23.365px;
+  align-items: center;
+  gap: 11.682px;
+  border-radius: 37.592px;
+  background: #F9F6EE;
+  /* Scroll animation initial state */
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  white-space: nowrap;
+  will-change: transform, opacity;
+}
+
+/* Left cards slide in from left + slightly up */
+.fromLeft {
+  transform: translateX(-60px) translateY(30px) scale(0.95);
+}
+
+/* Right cards slide in from right + slightly up */
+.fromRight {
+  transform: translateX(60px) translateY(30px) scale(0.95);
+}
+
+/* Visible state after scroll trigger */
+.card.visible {
+  opacity: 1;
+  transform: translateX(0) translateY(0) scale(1);
+}
+
+/* Subtle float on hover */
+.card:hover {
+  transform: translateY(-4px) scale(1.02);
+  transition: transform 0.3s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Image container */
+.imageWrap {
+  width: 77.539px;
+  height: 78.831px;
+  flex-shrink: 0;
+  border-radius: 25.249px;
+  overflow: hidden;
+  background: #E7E3D6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.foodImage {
+  width: 77.888px;
+  height: 55.823px;
+  flex-shrink: 0;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+/* Text section */
+.textWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Title — exact Figma specs */
+.foodName {
+  color: #000;
+  font-family: 'Geist', sans-serif;
+  font-size: 21.028px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%;
+}
+
+/* Description — exact Figma specs */
+.foodCategory {
+  color: #CF9459;
+  font-family: 'Geist', sans-serif;
+  font-size: 21.028px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%;
+}
+
+/* ========================
+   RESPONSIVE
+   ======================== */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    row-gap: 24px;
+  }
+
+  .cardSlot {
+    justify-self: center !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .card {
+    padding: 16px;
+    gap: 10px;
+    border-radius: 28px;
+  }
+
+  .imageWrap {
+    width: 56px;
+    height: 57px;
+    border-radius: 14px;
+  }
+
+  .foodName {
+    font-size: 16px;
+  }
+
+  .foodCategory {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 80px 0 120px;
+  }
+
+  .grid {
+    row-gap: 56px;
+  }
+}

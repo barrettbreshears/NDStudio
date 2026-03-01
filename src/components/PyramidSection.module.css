@@ -1,0 +1,440 @@
+.section {
+  background: var(--color-cream);
+  min-height: 230vh;
+  position: relative;
+}
+
+.stickyContainer {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.panelFrame {
+  width: 100%;
+  height: 100%;
+  padding: var(--panel-inset, 18px);
+  transition: padding 0.2s linear;
+}
+
+.panelSurface {
+  width: 100%;
+  height: 100%;
+  background: #1C3A16;
+  border-radius: var(--panel-radius, 120px);
+  transition: border-radius 0.2s linear;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.inner {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: clamp(48px, 8vh, 86px) clamp(24px, 4vw, 72px) 0;
+}
+
+.heading {
+  color: #FFF;
+  font-family: "Geist", sans-serif;
+  font-size: 66px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%;
+  max-width: 780px;
+  width: 100%;
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+}
+
+/* ========================
+   STAGE: pyramid + accordion overlay
+   ======================== */
+.stage {
+  position: relative;
+  min-height: 340px;
+  overflow: hidden;
+}
+
+/* The pyramid fills the stage */
+.pyramidVisual {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  transform: translateY(0) scale(1.02);
+  transform-origin: center top;
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    max-width 0.6s ease;
+}
+
+.pyramidVisual.pyramidSmall {
+  max-width: 180px;
+}
+
+.focusProtein {
+  transform: translateY(0) scale(1.08);
+}
+
+.focusVegetables {
+  transform: translateY(-94px) scale(1.09);
+}
+
+.focusGrains {
+  transform: translateY(-190px) scale(1.09);
+}
+
+.pyramidSvg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ========================
+   ACCORDION: overlaid on the left side of the pyramid
+   ======================== */
+.accordion {
+  position: static;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  gap: 24px;
+  z-index: 10;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.accordionHidden {
+  opacity: 0;
+  transform: translateX(-10px);
+  pointer-events: none;
+}
+
+.accordionItem {
+  display: block;
+  padding: 14px 22.745px;
+  align-self: stretch;
+  border-radius: 42.458px;
+  background: rgba(0, 0, 0, 0.30);
+  backdrop-filter: blur(23.692718505859375px);
+  overflow: hidden;
+  transition: background 0.3s;
+}
+
+.accordionItem.active {
+  background: rgba(0, 0, 0, 0.36);
+  padding: 18.954px 22.745px;
+}
+
+.accordionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: #FFF;
+  font-family: "Geist", sans-serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%;
+  font-feature-settings: "ss03" on;
+}
+
+.accordionLabel {
+  flex: 1;
+}
+
+.chevron {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.accordionContent {
+  max-height: 0;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 0;
+  transition: max-height 0.4s ease, margin-top 0.3s ease;
+}
+
+.accordionItem.active .accordionContent {
+  margin-top: 24px;
+}
+
+.accordionText {
+  color: #FFF;
+  font-family: "Geist", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%;
+  font-feature-settings: "ss03" on;
+  opacity: 0.92;
+  padding: 0;
+}
+
+.normalOutro {
+  background: #1C3A16;
+  padding: 6px 0 84px;
+  margin-top: -180px;
+  position: relative;
+  z-index: 3;
+}
+
+.normalOutroInner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 4vw, 72px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.productCard {
+  width: clamp(180px, 20vw, 280px);
+}
+
+.productBoxSvg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+}
+
+.productCardImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.28));
+}
+
+.whiteCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFF;
+  color: #1C3A16;
+  padding: 10px 8px 10px 20px;
+  border-radius: var(--radius-full);
+  font-family: "Geist Mono", monospace;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  font-feature-settings: "ss03" on;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.whiteCta:hover {
+  background: #F3F3F3;
+  transform: translateY(-1px);
+}
+
+.whiteCtaIcon {
+  width: 33px;
+  height: 33px;
+  flex-shrink: 0;
+}
+
+/* ========================
+   RESPONSIVE
+   ======================== */
+@media (min-width: 480px) {
+  .accordion {
+    max-width: 420px;
+  }
+}
+
+@media (min-width: 768px) {
+  .heading {
+    margin-bottom: 28px;
+  }
+
+  .pyramidVisual {
+    max-width: 700px;
+  }
+
+  .pyramidVisual.pyramidSmall {
+    max-width: 220px;
+  }
+
+  .accordion {
+    max-width: 440px;
+    width: 100%;
+  }
+
+  .accordionHeader {
+    font-size: 22px;
+  }
+
+  .accordionText {
+    font-size: 16px;
+  }
+
+  .focusVegetables {
+    transform: translateY(-120px) scale(1.1);
+  }
+
+  .focusGrains {
+    transform: translateY(-245px) scale(1.1);
+  }
+
+}
+
+@media (min-width: 1024px) {
+  .heading {
+    margin-bottom: 40px;
+  }
+
+  .stage {
+    min-height: 720px;
+    display: grid;
+    grid-template-columns: minmax(300px, 380px) minmax(760px, 980px);
+    align-items: center;
+    column-gap: clamp(28px, 4vw, 64px);
+  }
+
+  .pyramidVisual {
+    grid-column: 2;
+    grid-row: 1;
+    max-width: 980px;
+    width: 100%;
+    margin: 0;
+    justify-self: center;
+  }
+
+  .accordion {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+    justify-self: start;
+    max-width: 440px;
+    width: 100%;
+    z-index: 5;
+    margin-left: 56px;
+    margin-top: -68px;
+  }
+
+  .accordionHeader {
+    font-size: 22px;
+  }
+
+  .accordionText {
+    font-size: 16px;
+  }
+
+  .focusProtein {
+    transform: translateY(-8px) scale(1.03);
+  }
+
+  .focusVegetables {
+    transform: translateY(-168px) scale(1.06);
+  }
+
+  .focusGrains {
+    transform: translateY(-336px) scale(1.06);
+  }
+
+}
+
+@media (max-width: 1023px) {
+  .heading {
+    font-size: 48px;
+    max-width: 680px;
+  }
+
+  .stage {
+    min-height: 560px;
+  }
+
+  .pyramidVisual {
+    max-width: none;
+    width: 138%;
+    margin-left: 28%;
+  }
+
+  .accordion {
+    position: absolute;
+    left: 56px;
+    top: 42%;
+    transform: translateY(-50%);
+    z-index: 6;
+    max-width: 360px;
+  }
+
+  .accordionHidden {
+    transform: translateY(-50%) translateX(-10px);
+  }
+}
+
+@media (max-width: 767px) {
+  .heading {
+    font-size: 34px;
+  }
+
+  .stage {
+    min-height: 560px;
+  }
+
+  .pyramidVisual {
+    width: 132%;
+    margin-left: 18%;
+  }
+
+  .accordion {
+    left: 34px;
+    top: 46%;
+    width: auto;
+    max-width: 290px;
+    margin: 0;
+  }
+
+  .accordionItem {
+    padding: 14px 16px;
+    border-radius: 28px;
+  }
+
+  .accordionItem.active {
+    padding: 16px;
+  }
+
+  .accordionItem.active .accordionContent {
+    margin-top: 14px;
+  }
+
+  .accordionHeader {
+    font-size: 18px;
+  }
+
+  .accordionText {
+    font-size: 14px;
+  }
+
+  .normalOutro {
+    padding: 4px 0 64px;
+    margin-top: -150px;
+  }
+
+  .focusProtein {
+    transform: translateY(6px) scale(1.03);
+  }
+
+  .focusVegetables {
+    transform: translateY(-82px) scale(1.04);
+  }
+
+  .focusGrains {
+    transform: translateY(-156px) scale(1.04);
+  }
+}

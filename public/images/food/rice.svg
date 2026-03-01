@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="20" fill="#faf6ee"/>
+  <circle cx="100" cy="100" r="60" fill="#f0e6d0"/>
+  <circle cx="100" cy="100" r="52" fill="#f7eed8"/>
+  <ellipse cx="80" cy="78" rx="3" ry="8" fill="#fff" transform="rotate(-20 80 78)"/>
+  <ellipse cx="100" cy="72" rx="3" ry="8" fill="#fff" transform="rotate(10 100 72)"/>
+  <ellipse cx="120" cy="78" rx="3" ry="8" fill="#fff" transform="rotate(25 120 78)"/>
+  <ellipse cx="72" cy="100" rx="3" ry="8" fill="#fff" transform="rotate(-10 72 100)"/>
+  <ellipse cx="95" cy="95" rx="3" ry="8" fill="#fff" transform="rotate(15 95 95)"/>
+  <ellipse cx="115" cy="100" rx="3" ry="8" fill="#fff" transform="rotate(-5 115 100)"/>
+  <ellipse cx="128" cy="95" rx="3" ry="8" fill="#fff" transform="rotate(20 128 95)"/>
+  <ellipse cx="85" cy="118" rx="3" ry="8" fill="#fff" transform="rotate(5 85 118)"/>
+  <ellipse cx="108" cy="115" rx="3" ry="8" fill="#fff" transform="rotate(-15 108 115)"/>
+  <ellipse cx="122" cy="118" rx="3" ry="8" fill="#fff" transform="rotate(10 122 118)"/>
+</svg>
